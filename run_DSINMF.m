@@ -17,9 +17,9 @@ function [nmi,ami,ari,accuracy,glabel] = run_DSINMF(path_data,path_label,k_array
     options1 = [];
     options1.Metric = 'Cosine';
     options1.NeighborMode = 'KNN';%KNN
-    options1.k =5;  %5 nearest neighbors
+    options1.k =10;  %5 nearest neighbors
     options1.WeightMode = 'Cosine';%Weights are 0 or 1, it can eplace with 'HeatKernel', 'Euclidean' 
-    options1.maxIters=200;
+    options1.maxIters=400;
     
     W = constructW(X',options);
     % W = SNN_Gauss(X', 10, 'cosine',1.0);

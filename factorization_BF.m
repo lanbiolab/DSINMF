@@ -1,6 +1,6 @@
 function [B_final, F_final] = factorization_BF(X,A,k,W,options)
 
-maxIter = 200;
+maxIter = 400;
 if isfield(options, 'maxIter')
     maxIter = options.maxIter;
 end
@@ -40,14 +40,14 @@ D = spdiags(DCol,0,speye(size(W,1)));% Compose Diagonal D
 %%%%%%%===========initialization================  
 k1 = mFea;
 if ~exist('U','var')
-    B0 = abs(rand(k1,k));
-    F0 = abs(rand(k,nSmp));
+    B0 = abs(rand(k1,k)); F0 = abs(rand(k,nSmp));
+    % [B0,F0] = NMF(A,k);
 end
 
 [B0,F0] = NormalizeUV(B0, F0', NormV, Norm);F0=F0';
 
 Bk=B0;Fk=F0;
-Akl=A;
+Akl = A;
 Ak = A;
 iter = 0; 
 converged = 0;    
@@ -106,9 +106,9 @@ B_final = Bkl; %%% B_final  is finally B
 F_final = Fkl; %%% F_final  is finally F
 
 [B_final,F_final] = NormalizeUV(B_final, F_final', NormV, Norm);F_final=F_final';
-t=1:iter;
-figure
-plot(t,er,'r-'),xlabel('Iteration times');ylabel('Error');
+%t=1:iter;
+%figure
+%plot(t,er,'r-'),xlabel('Iteration times');ylabel('Error');
 end
 
 

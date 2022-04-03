@@ -19,10 +19,9 @@ end
 
 X=abs(X);
 [n,m]=size(X);
-A= abs(rand(n,k1));
-B = abs(rand(k1,m));
-
-[mFea,nSmp]=size(B);
+A= abs(rand(n,k1)); B = abs(rand(k1,m));
+% [A,B]= NMF(X,k1);
+[~,nSmp]=size(B);
 
 %%%%%%=========== Weight matrix setting===========
 
@@ -94,8 +93,17 @@ while ~converged  && iter < maxIter
       Ak1=Ak.*(((X+O)*Bk')./(Ak*(Bk*Bk')));
       %%%========Update variables A==========
       I=eye(k1);
+      
+      %Ô­°æ
       VV1=Ak1'*(X+O)+derta*Ek+Tk;
-      VV2=((Ak1'*Ak1)+derta*I)*Bk;       
+      VV2=((Ak1'*Ak1)+derta*I)*Bk;
+      
+%       VV1=Ak1'*(X+O)+derta*Ek+Tk+alpha1*(Bk*W);
+%       VV2=((Ak1'*Ak1)+derta*I)*Bk+alpha1*(Bk*D);
+      
+      %VV1=Ak1'*(X+O)+alpha1*(Bk*W);
+      %VV2=((Ak1'*Ak1))*Bk+alpha1*(Bk*D);   
+      
       Bkl=Bk.*(VV1./(VV2 ));
       % ¸üÐÂS¾ØÕó
       M=Ak1*Bkl-X;
@@ -125,9 +133,9 @@ end %end while
 A_final = Ak1; %%% Z_final  is finally Z
 B_final = Bkl; %%% A_final  is finally A  
 [A_final,B_final] = NormalizeUV(A_final, B_final', NormV, Norm);B_final=B_final';
-t=1:iter;
-figure(2);
-plot(t,er,'r-'),xlabel('Iteration times');ylabel('Error');
+%t=1:iter;
+%figure(2);
+%plot(t,er,'r-'),xlabel('Iteration times');ylabel('Error');
 
 end
 
