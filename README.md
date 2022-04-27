@@ -46,4 +46,4 @@ fprintf('%f\n',a);
 ```
 
 ## Contact 
-### Please send any questions or found bugs to lanwei@gxu.edu.cn 
+### Please send any questions or found bugs to lanwei@gxu.edu.cn (广西大学生物信息组 兰伟 副教授)
