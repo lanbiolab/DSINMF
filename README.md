@@ -3,7 +3,7 @@ Detecting cell type from single cell RNA sequencing based on deep bi-stoachstic 
 ===========================================================================================================================
 Overview:
 ----------------------------------------------------------------------------------------------------------------------------
-###  This is code to do Detecting cell type from single cell RNA sequencing based on deep bi-stoachstic graph regularized matrix factorization given in the "experiment" section of the paper.The coding here is a generalization of the algorithm given in the paper. DSINMF is written in the MATLAB programming language. To use, please download the DSINMF folder and follow the instructions provided in the README.doc.
+###  This is code for W Lan, J Chen, M Liu, Q Chen, J Liu, J Wang, YPP Chen. Deep Imputation Bi-stochastic Graph Regularized Matrix Factorization for Clustering Single-cell RNA-sequencing Data. IEEE/ACM Transactions on Computational Biology and Bioinformatics.The coding here is a generalization of the algorithm given in the paper. DSINMF is written in the MATLAB programming language. To use, please download the DSINMF folder and follow the instructions provided in the README.doc.
 #### Files:
 ##### run_DSINMF.m - The main function.
 ##### factorization_AB.m - dimension reduction
@@ -46,4 +46,4 @@ fprintf('%f\n',a);
 ```
 
 ## Contact 
-### Please send any questions or found bugs to lanwei@gxu.edu.cn (广西大学生物信息组 兰伟 副教授)
+### Please send any questions or found bugs to lanwei@gxu.edu.cn 
